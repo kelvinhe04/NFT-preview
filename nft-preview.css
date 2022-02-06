@@ -1,3 +1,4 @@
+/* -----------------code reset-------------------*/
 * {
   margin: 0;
   padding: 0;
@@ -17,9 +18,11 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 p {
   font-size: 18px;
+  /* -----------------first part of the card-------------------*/
 }
 .card {
   width: 50%;
@@ -29,17 +32,39 @@ p {
   padding: 1.3em;
   box-shadow: 1px 10px 30px 30px #0e1729;
 }
-.card__img img {
+.card__img {
+  position: relative;
+  width: 100%;
+}
+.card__img__img {
   width: 100%;
   margin: 0 auto;
   border-radius: 10px;
 }
-.card__img:hover > .view__background {
-  position: absolute;
-  display: block;
-  top: 50%;
-  left: 50%;
+.view__icon {
+  width: 40px;
 }
+/* -----------------image overlay-------------------*/
+.img__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.25s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img__overlay:hover {
+  opacity: 1;
+}
+.img__overlay--primary {
+  background-color: rgb(0, 255, 247, 0.5);
+}
+/* -----------------second part of the card-------------------*/
 .card__text {
   border-bottom: red;
   border-bottom: 2px solid hsl(215, 20%, 36%);
@@ -54,17 +79,31 @@ p {
 .card__title:hover {
   color: hsl(178, 100%, 50%);
 }
+.card__description {
+  font-size: 1rem;
+  font-weight: 500;
+  color: hsl(215, 51%, 70%);
+  margin-bottom: 1.3rem;
+}
 .card__row {
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
 }
+.card__logo {
+  width: 10px;
+  margin-right: 0.5rem;
+}
 .card__row2 {
   display: flex;
-
   justify-content: space-between;
   width: 100%;
   align-items: center;
+}
+.card__description1 {
+  color: hsl(178, 100%, 50%);
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .card__col2 {
@@ -72,39 +111,23 @@ p {
   align-items: center;
 }
 
-.card__logo {
-  width: 10px;
-  margin-right: 0.5rem;
-}
 .card__clock {
   width: 15px;
 }
-
-.card__description {
-  font-size: 1rem;
-  font-weight: 500;
-  color: hsl(215, 51%, 70%);
-  margin-bottom: 1.3rem;
-}
-
 .card__description2 {
   margin-left: 10px;
   font-size: 1rem;
   font-weight: 500;
   color: hsl(215, 51%, 70%);
 }
-.card__description1 {
-  color: hsl(178, 100%, 50%);
-  font-size: 1rem;
-  font-weight: 500;
-}
+
+/* -----------------footer part of the card-------------------*/
 .card__footer {
   width: 100%;
-}
-.card__footer__row {
   display: flex;
   align-items: center;
 }
+
 .card__profile {
   width: 30px;
   height: 27px;
@@ -112,6 +135,7 @@ p {
   border: 1px solid hsl(0, 0%, 100%);
   margin-right: 0.7rem;
 }
+
 .card__footer__description {
   color: white;
   font-weight: 500;
